@@ -43,8 +43,8 @@ INCS_Debug := \
 	-I/home/caprice/.node-gyp/8.12.0/deps/zlib \
 	-I/home/caprice/.node-gyp/8.12.0/deps/v8/include \
 	-I$(srcdir)/node_modules/nan \
-	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/include \
-	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/include
+	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/include \
+	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/include
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=libstorj' \
@@ -84,8 +84,8 @@ INCS_Release := \
 	-I/home/caprice/.node-gyp/8.12.0/deps/zlib \
 	-I/home/caprice/.node-gyp/8.12.0/deps/v8/include \
 	-I$(srcdir)/node_modules/nan \
-	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/include \
-	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/include
+	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/include \
+	-I/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/binding.o
@@ -118,16 +118,16 @@ LDFLAGS_Debug := \
 	-pthread \
 	-rdynamic \
 	-m64 \
-	-Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libnettle.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libgnutls.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libhogweed.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libjson-c.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libgmp.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libcurl.a -Wl,--no-whole-archive
+	-Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libnettle.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libgnutls.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libhogweed.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libjson-c.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libgmp.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libcurl.a -Wl,--no-whole-archive
 
 LDFLAGS_Release := \
 	-pthread \
 	-rdynamic \
 	-m64 \
-	-Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libnettle.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libgnutls.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libhogweed.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libjson-c.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libgmp.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/depends/lib/libcurl.a -Wl,--no-whole-archive
+	-Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libnettle.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libgnutls.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libhogweed.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libjson-c.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libgmp.a -Wl,--whole-archive /home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/depends/lib/libcurl.a -Wl,--no-whole-archive
 
 LIBS := \
-	/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta2/lib/libstorj.a
+	/home/caprice/Documents/storj-lib/libstorj-2.0.0-beta3/lib/libstorj.a
 
 $(obj).target/storj.node: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(obj).target/storj.node: LIBS := $(LIBS)
