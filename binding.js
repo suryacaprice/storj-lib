@@ -9,7 +9,11 @@ const basePath = libstorj.basePath;
 // Set the PATH and LD_LIBRARY_PATH environment variables.
 process.env['PATH'] =
   process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'] + '/bin';
-process.env['LD_LIBRARY_PATH'] = process.env['LAMBDA_TASK_ROOT'] + '/bin';
+process.env['LD_LIBRARY_PATH'] =
+  process.env['LD_LIBRARY_PATH'] +
+  ':' +
+  process.env['LAMBDA_TASK_ROOT'] +
+  '/bin';
 
 // console.log(process.env['PATH']);
 const libstorjArchive = path.resolve(basedir, basePath + '/lib/libstorj.a');
