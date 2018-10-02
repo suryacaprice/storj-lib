@@ -1,0 +1,11 @@
+prefix=/home/bgf/storj/libstorj-c/release/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libstorj consensus library
+Description: Library for the Storj protocol.
+Version: 2.0.0-beta2
+Libs: -L${libdir} -lstorj
+Cflags: -I${includedir}
+Requires: libcurl nettle json-c libuv

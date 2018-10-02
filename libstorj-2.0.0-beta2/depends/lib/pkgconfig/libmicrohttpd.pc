@@ -1,0 +1,14 @@
+prefix=/home/bgf/storj/libstorj-c/depends/build/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libmicrohttpd
+Description: A library for creating an embedded HTTP server
+Version: 0.9.51
+Requires:
+Requires.private: gnutls
+Conflicts:
+Libs: -L${libdir} -lmicrohttpd
+Libs.private: -lgcrypt  
+Cflags: -I${includedir}

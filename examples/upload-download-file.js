@@ -4,7 +4,8 @@ const storj = new libstorj.Environment({
   bridgeUrl: 'https://api.storj.io',
   bridgeUser: 'user@domain.com',
   bridgePass: 'password',
-  encryptionKey: 'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about',
+  encryptionKey:
+    'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about',
   logLevel: 0
 });
 
@@ -17,8 +18,12 @@ const fileName = 'storj-test-upload.data';
 storj.storeFile(bucketId, uploadFilePath, {
   filename: fileName,
   progressCallback: function(progress, uploadedBytes, totalBytes) {
-    console.log('Progress: %d, uploadedBytes: %d, totalBytes: %d',
-                progress, uploadedBytes, totalBytes);
+    console.log(
+      'Progress: %d, uploadedBytes: %d, totalBytes: %d',
+      progress,
+      uploadedBytes,
+      totalBytes
+    );
   },
   finishedCallback: function(err, fileId) {
     if (err) {
@@ -29,8 +34,12 @@ storj.storeFile(bucketId, uploadFilePath, {
     // download file that was just uploaded
     storj.resolveFile(bucketId, fileId, downloadFilePath, {
       progressCallback: function(progress, downloadedBytes, totalBytes) {
-        console.log('Progress: %d, downloadedBytes: %d, totalBytes: %d',
-                    progress, downloadedBytes, totalBytes);
+        console.log(
+          'Progress: %d, downloadedBytes: %d, totalBytes: %d',
+          progress,
+          downloadedBytes,
+          totalBytes
+        );
       },
       finishedCallback: function(err) {
         if (err) {

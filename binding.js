@@ -6,6 +6,10 @@ const path = require('path');
 const basedir = path.resolve(__dirname);
 const libstorj = require('./package.json').libstorj;
 const basePath = libstorj.basePath;
+// Set the PATH and LD_LIBRARY_PATH environment variables.
+process.env['PATH'] =
+  process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'] + '/bin';
+process.env['LD_LIBRARY_PATH'] = process.env['LAMBDA_TASK_ROOT'] + '/bin';
 
 const libstorjArchive = path.resolve(basedir, basePath + '/lib/libstorj.a');
 const libstorjIncludes = path.resolve(basedir, basePath + '/include');
@@ -20,19 +24,21 @@ let archives = [
   '/depends/lib/libcurl.a'
 ];
 
-archives = archives.map((a) => path.resolve(basedir, basePath + a));
+archives = archives.map(a => path.resolve(basedir, basePath + a));
 
 let installed = true;
 try {
-  let output = execSync('pkg-config --exists libstorj', { stdio: ['ignore', 'ignore', 'ignore'] });
-} catch(e) {
+  let output = execSync('pkg-config --exists libstorj', {
+    stdio: ['ignore', 'ignore', 'ignore']
+  });
+} catch (e) {
   installed = false;
 }
 
 const cmd = process.argv[2];
 let status = 1;
 
-switch(cmd) {
+switch (cmd) {
   case 'libraries':
     status = 0;
     stdout.write(installed ? '-lstorj' : libstorjArchive);
@@ -47,13 +53,15 @@ switch(cmd) {
     break;
   case 'ldflags':
     status = 0;
-    const ldflags = archives.map((a) => '-Wl,--whole-archive ' + a).join(' ');
+    const ldflags = archives.map(a => '-Wl,--whole-archive ' + a).join(' ');
     stdout.write(installed ? '' : ldflags + ' -Wl,--no-whole-archive');
     break;
   case 'ldflags_mac':
     status = 0;
-    const ldflags_mac = archives.map((a) => '-Wl,-all_load ' + a).join(' ');
-    stdout.write(installed ? '' : '-framework Security ' + ldflags_mac + ' -Wl,-noall_load');
+    const ldflags_mac = archives.map(a => '-Wl,-all_load ' + a).join(' ');
+    stdout.write(
+      installed ? '' : '-framework Security ' + ldflags_mac + ' -Wl,-noall_load'
+    );
     break;
   default:
     status = 1;
