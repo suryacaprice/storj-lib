@@ -1,0 +1,82 @@
+{
+  "name": "storj",
+  "version": "5.1.0",
+  "description": "Node.js library for encrypted file transfer on the Storj network.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/**.test.js --recursive",
+    "preinstall": "node ./download.js",
+    "install": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storj/node-libstorj.git"
+  },
+  "keywords": [
+    "storj",
+    "encryption",
+    "storage"
+  ],
+  "author": "Storj Labs, Inc.",
+  "contributors": [
+    {
+      "name": "Braydon Fuller",
+      "url": "https://github.com/braydonf"
+    },
+    {
+      "name": "Bryan White",
+      "url": "https://github.com/bryanchriswhite"
+    },
+    {
+      "name": "Moby von Briesen",
+      "url": "https://github.com/mobyvb"
+    }
+  ],
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/storj/node-libstorj/issues"
+  },
+  "homepage": "https://github.com/storj/node-libstorj#readme",
+  "dependencies": {
+    "bindings": "^1.2.1",
+    "nan": "^2.6.2",
+    "node-addon-api": "^1.4.0"
+  },
+  "devDependencies": {
+    "basic-auth": "^2.0.0",
+    "body-parser": "^1.17.2",
+    "chai": "^4.0.2",
+    "express": "^4.15.3",
+    "mocha": "^5.2.0"
+  },
+  "libstorj": {
+    "basePath": "./libstorj-2.0.0-beta2",
+    "baseUrl": "https://github.com/Storj/libstorj/releases/download/v2.0.0-beta2",
+    "releases": [
+      {
+        "arch": "arm",
+        "platform": "linux",
+        "filename": "libstorj-2.0.0-beta2-linux-armv7.tar.gz",
+        "checksum": "5831f6f1ca5c10a64e731ccbf7e2b139867f5a4423003b4f2b02ae2c138c9249"
+      },
+      {
+        "arch": "ia32",
+        "platform": "linux",
+        "filename": "libstorj-2.0.0-beta2-linux32.tar.gz",
+        "checksum": "ad9f72c8afe0ea111a6da51680aa5d1d000099ad89a276bfc6d08b88807f0ea2"
+      },
+      {
+        "arch": "x64",
+        "platform": "linux",
+        "filename": "libstorj-2.0.0-beta2-linux64.tar.gz",
+        "checksum": "d34951e420e3d9dd73731f95a4ca781bf3f57019df6a48e0773028bdc1da3b37"
+      },
+      {
+        "arch": "x64",
+        "platform": "darwin",
+        "filename": "libstorj-2.0.0-beta2-macos.tar.gz",
+        "checksum": "7eb5f7b855696a57d95f486c5415ebc01163289551e6b15531869cdf1339a005"
+      }
+    ]
+  }
+}
